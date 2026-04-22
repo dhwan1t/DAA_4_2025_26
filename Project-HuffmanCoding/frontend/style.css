@@ -125,7 +125,7 @@ button:disabled {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(5px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
@@ -160,17 +160,14 @@ button:disabled {
 .output-box::-webkit-scrollbar {
     width: 6px;
 }
-
 .output-box::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 }
-
 .output-box::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
 }
-
 .output-box::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.3);
 }

@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const codeTableDiv = document.getElementById("codeTable");
   const codeTableSection = document.getElementById("codeTableSection");
 
-  // Convert text to 8-bit ASCII binary
   function textToBinary(text) {
     return Array.from(text)
       .map((char) => char.charCodeAt(0).toString(2).padStart(8, "0"))
@@ -18,11 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   compressBtn.addEventListener("click", async () => {
     const text = inputText.value;
-    if (!text) {
-      return;
-    }
+    if (!text) return;
 
-    // Reset UI
     errorMessage.classList.add("hidden");
     resultsContainer.classList.add("hidden");
     compressBtn.textContent = "Compressing...";
@@ -31,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const originalBinary = textToBinary(text);
 
-      // Call API
       const response = await fetch(
         "https://huffman-project-yes.onrender.com/compress",
         {
@@ -54,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error(data.error);
       }
 
-      // Calculate ratio frontend
       const compressedBinary = data.compressed || "";
       const originalBits = originalBinary.length;
       const compressedBits = compressedBinary.length;
@@ -63,12 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
           ? (originalBits / compressedBits).toFixed(2)
           : "0.00";
 
-      // Update UI
       originalBinaryDiv.textContent = originalBinary;
       compressedBinaryDiv.textContent = compressedBinary;
       compressionRatioDiv.textContent = `${ratio}x (Original: ${originalBits} bits, Compressed: ${compressedBits} bits)`;
 
-      // Render Code Table if available
       codeTableDiv.innerHTML = "";
       if (data.codes && Object.keys(data.codes).length > 0) {
         codeTableSection.classList.remove("hidden");
