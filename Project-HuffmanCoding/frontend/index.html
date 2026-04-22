@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Huffman Compressor</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="grain-overlay"></div>
+        <div class="container">
+            <div class="card">
+                <header>
+                    <h1>Huffman Compressor</h1>
+                </header>
+
+                <div class="input-section">
+                    <textarea
+                        id="inputText"
+                        placeholder="Enter text to compress..."
+                        rows="4"
+                    ></textarea>
+                    <button id="compressBtn" disabled>
+                        <span class="btn-text">Compress</span>
+                        <span class="loader hidden"></span>
+                    </button>
+                </div>
+
+                <div id="outputSection" class="output-section hidden">
+                    <div class="result-group">
+                        <h3>Compression Ratio</h3>
+                        <div id="compressionRatio" class="ratio-value">--</div>
+                    </div>
+
+                    <div class="result-group">
+                        <h3>Original Binary</h3>
+                        <div id="originalBinary" class="scrollable-code"></div>
+                    </div>
+
+                    <div class="result-group">
+                        <h3>Compressed Binary</h3>
+                        <div
+                            id="compressedBinary"
+                            class="scrollable-code"
+                        ></div>
+                    </div>
+
+                    <div class="result-group">
+                        <h3>Code Table</h3>
+                        <div id="codeTable" class="code-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
